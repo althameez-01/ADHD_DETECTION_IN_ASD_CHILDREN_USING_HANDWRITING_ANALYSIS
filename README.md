@@ -189,5 +189,3 @@ The reported accuracy reflects the project's evaluation setup and does not estab
 
 **Al Thameez S.**
 
-
-This project is licensed under the MIT License, provided that the repository's `LICENSE` file contains the MIT License. See the `LICENSE` file for details.
