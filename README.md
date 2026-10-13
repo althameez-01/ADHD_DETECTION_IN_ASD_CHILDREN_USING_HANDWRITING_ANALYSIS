@@ -1,92 +1,193 @@
-ADHD-DETECTION-IN-ASD-CHILDREN-USING-HANDWRITING-ANALYSIS
-A robust, GPU-powered deep learning system designed to detect ADHD, ASD in children by analyzing handwriting samples. This project leverages ResNet50V2 with custom CNN layers and was inspired by the need for early, accessible, and non-invasive ADHD diagnosis support—especially for children with Autism Spectrum Disorder (ASD).
-📌 Table of Contents
-Background,
-Problem Statement,
-Motivation,
-Objectives,
-Scope,
-Significance,
-System Architecture,
-Model Details,
-Technologies Used,
-Installation,
-Usage,
-Results,
-Limitations,
-Future Enhancements,
-Credits.
-📖 Background
-ADHD is one of the most common neurodevelopmental disorders in children. Detecting ADHD early is critical, especially among children with ASD, where overlapping symptoms can make diagnosis more challenging. This project explores an ML-based solution that uses handwriting patterns to distinguish ADHD, ASD, and control conditions.
-❗ Problem Statement
-To build a machine learning system capable of detecting ADHD and related neurodevelopmental conditions based on handwriting patterns, aiding professionals in early diagnosis.
-💡 Motivation
-ADHD diagnosis can be subjective and delayed.
-Traditional assessments are time-consuming and resource-intensive.
-AI and ML can help analyze handwriting—a motor and cognitive task—as a low-cost, non-invasive diagnostic aid.
-🎯 Objectives
-Develop a deep learning model that classifies handwriting into ADHD, ASD, or Control.
-Integrate transfer learning (ResNet50V2) with custom CNN layers to improve accuracy.
-Support GPU-based training for better scalability and performance.
-Provide an interactive front-end for uploading handwriting images and viewing predictions.
-📦 Scope
-Focused on analyzing handwriting samples from children.
-Classification among three categories: ADHD, ASD, Control.
-Modular and GPU-compatible for scalability and performance.
-🔍 Significance
-Helps streamline early ADHD diagnosis.
-Supports educational institutions and mental health professionals.
-Opens doors to AI-powered mental health tools.
-🧰 System Architecture
-overview: > The system takes a scanned handwriting sample as input and processes it through several stages including preprocessing, feature extraction using ResNet50V2, and classification via a custom CNN head. The final diagnosis is then displayed via a simple user interface.
-components: - name: "Web UI" function: "Allows users to upload handwriting images (PNG, JPG)" - name: "Preprocessing Module" function: "Resizes image, converts to grayscale, normalizes pixel values" - name: "Feature Extractor" function: "Uses ResNet50V2 (include_top=False) to extract spatial features" - name: "Classification Head" function: > Custom CNN head with dense layers and dropout that predicts one of three classes: ADHD, ASD, or Control - name: "Output Module" function: "Displays predicted class to user with optional confidence scores"
-flow_diagram: | User Upload (Web UI) | v Preprocessing (resize, normalize) | v ResNet50V2 + Custom CNN | v Prediction (ADHD / ASD / Control) | v Results Displayed on Interface
-🧠 Model Details
-Base Model: ResNet50V2 with include_top=False
-Custom Layers:
-GlobalAveragePooling2D
-Dense (128 units, ReLU)
-Dropout (0.5)
-Dense (3 units, Softmax)
-Optimizer: Adam
-Loss: Categorical Crossentropy
-Metrics: Accuracy
-🚀 Technologies Used
-Tool/Library	Purpose
-Python	Programming Language
-TensorFlow/Keras	Deep Learning Framework
-OpenCV	Image Processing
-NumPy	Numerical Operations
-Matplotlib	Visualization
-Streamlit (Optional)	Web-based UI (demo)
-🛠️ Installation
-1.	Clone the Repository
-git clone https://github.com/althameez-01/ADHD-DETECTION-IN-ASD-CHILDREN-USING-HANDWRITING-ANALYSIS-main.git
-cd ADHD-DETECTION-IN-ASD-CHILDREN-USING-HANDWRITING-ANALYSIS-main
-⚙️ Install Dependencies
+
+# ADHD Detection in ASD Children Using Handwriting Analysis
+
+A deep learning-based system that analyzes handwriting images to classify samples into **ADHD, ASD, and Control** categories using ResNet50V2 and custom CNN layers.
+
+## 📌 Overview
+
+This project explores the application of deep learning and computer vision for analyzing handwriting patterns as a potential aid for preliminary screening research. It combines transfer learning using ResNet50V2 with a custom Convolutional Neural Network (CNN) classification head to identify patterns in handwriting images.
+
+The system supports image preprocessing, feature extraction, three-class classification, and an optional web interface for uploading handwriting samples and viewing predictions.
+
+**Note:** This project is an experimental research prototype and does not replace professional clinical diagnosis.
+
+## 🎯 Objectives
+
+- Classify handwriting images into ADHD, ASD, and Control categories.
+- Apply transfer learning using ResNet50V2.
+- Extract relevant image features using custom CNN layers.
+- Support GPU-compatible model training.
+- Provide an interface for uploading images and viewing predictions.
+- Evaluate model performance using standard classification metrics.
+
+## ✨ Key Features
+
+- Handwriting image classification.
+- ResNet50V2-based feature extraction.
+- Custom CNN classification head.
+- Image preprocessing and normalization.
+- GPU-compatible training.
+- Optional Streamlit web interface.
+- Performance evaluation and visualization.
+
+## 🏗️ System Architecture
+
+```text
+Handwriting Image Input
+          |
+          v
+Image Preprocessing
+(Resize and Normalize)
+          |
+          v
+ResNet50V2 Feature Extraction
+          |
+          v
+Custom CNN Classification
+          |
+          v
+Three-Class Prediction
+          |
+          v
+ADHD / ASD / Control
+          |
+          v
+Display Results
+```
+
+## 🧠 Model Architecture
+
+The model combines a pretrained ResNet50V2 feature extractor with custom classification layers.
+
+| Component | Configuration |
+|---|---|
+| Base Model | ResNet50V2 |
+| Feature Extraction | include_top=False |
+| Pooling Layer | GlobalAveragePooling2D |
+| Dense Layer | 128 neurons, ReLU |
+| Dropout | 0.5 |
+| Output Layer | 3 neurons, Softmax |
+| Optimizer | Adam |
+| Loss Function | Categorical Cross-Entropy |
+| Evaluation Metric | Accuracy |
+
+## 🛠️ Technologies Used
+
+- **Programming Language:** Python
+- **Deep Learning:** TensorFlow, Keras
+- **Model Architecture:** ResNet50V2, CNN
+- **Image Processing:** OpenCV
+- **Numerical Computing:** NumPy
+- **Visualization:** Matplotlib
+- **Web Interface:** Streamlit (optional)
+- **Development Environment:** Jupyter Notebook
+
+## 📊 Dataset
+
+The project uses handwriting samples from a Kaggle ADHD dataset to explore classification across ADHD, ASD, and Control categories.
+
+- **Input:** Handwriting images.
+- **Classes:** ADHD, ASD, Control.
+- **Preprocessing:** Image resizing and normalization.
+- **Evaluation:** Accuracy, confusion matrix, and loss curves.
+
+**Dataset Source:** Add the exact Kaggle dataset URL used in your project.
+
+## ⚙️ Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/althameez-01/ADHD_DETECTION_IN_ASD_CHILDREN_USING_HANDWRITING_ANALYSIS.git
+```
+
+```bash
+cd ADHD_DETECTION_IN_ASD_CHILDREN_USING_HANDWRITING_ANALYSIS
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate the environment on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-⚡ (Optional) Enable GPU Support
-Ensure that TensorFlow-GPU is installed and your system has CUDA and cuDNN properly configured to use the advanced GPU-enabled version of the model.
-▶️ Usage
-1. Run the Basic Script
+```
+
+## ▶️ Usage
+
+### Run the Basic Model
+
+```bash
 python adhd_detection.py
-2. Run the Advanced GPU-Enabled Script
+```
+
+### Run the Advanced GPU-Compatible Model
+
+```bash
 python adhd_advanced_gpu.py
-3.	Upload a Handwriting Image
-When prompted (or via Streamlit UI), provide a .png or .jpg handwriting sample. The system will return one of:
-ADHD
-ASD
-📊 Results
-Accuracy: ~87% (with advanced CNN model)
-Training Dataset: Handwriting samples from Kaggle ADHD dataset
-Balanced Class Distribution: Yes
-Evaluation Metrics: Accuracy, Confusion Matrix, Loss Curves
-⚠️ Limitations
-Dataset size and diversity can affect generalizability.
-Requires high-quality handwriting input.
-Not a replacement for medical diagnosis.
-🔮 Future Enhancements
-Expand dataset to include multilingual and age-diverse samples.
-Integrate real-time webcam handwriting capture.
-Add attention heatmaps for model explainability.
-Deploy as a full-stack web app with a feedback system.
+```
+
+### Launch the Streamlit Interface
+
+If your project includes a Streamlit application, run:
+
+```bash
+streamlit run app.py
+```
+
+Replace `app.py` with the actual interface filename if necessary.
+
+Upload a supported handwriting image and view the predicted category.
+
+## 📈 Results
+
+The advanced CNN model achieved approximately **87% accuracy** on the evaluated dataset.
+
+Evaluation metrics include:
+
+- Accuracy
+- Confusion Matrix
+- Training and Validation Loss Curves
+
+The reported accuracy reflects the project's evaluation setup and does not establish clinical diagnostic performance.
+
+## ⚠️ Limitations
+
+- Dataset size and diversity may affect model performance.
+- Handwriting varies with age, education, language, and motor abilities.
+- Image quality may influence predictions.
+- Generalization to unseen populations requires further validation.
+- Predictions are not a substitute for professional clinical assessment.
+
+## 🔮 Future Enhancements
+
+- Expand the dataset with diverse handwriting samples.
+- Validate the model using independent datasets.
+- Integrate Grad-CAM visualizations for model explainability.
+- Develop a complete web application with prediction history.
+- Improve model generalization and confidence calibration.
+- Strengthen privacy protection for children's data.
+
+## 💡 Applications
+
+- Handwriting image classification.
+- Deep learning and computer vision research.
+- Exploration of AI-assisted preliminary screening.
+- Educational demonstrations of transfer learning.
+
+## 👩‍💻 Author
+
+**Al Thameez S.**
+
+
+This project is licensed under the MIT License, provided that the repository's `LICENSE` file contains the MIT License. See the `LICENSE` file for details.
